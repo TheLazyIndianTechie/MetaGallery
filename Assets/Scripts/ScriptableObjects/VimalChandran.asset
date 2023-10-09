@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc3004c3211f4868802cf84ffbb0373, type: 3}
+  m_Name: VimalChandran
+  m_EditorClassIdentifier: 
+  artistName: Vimal Chandran
+  artistBio: "Vimal Chandran is a multidisciplinary visual artist from India who
+    majorly works on illustrations, photography and film. His works are inspired
+    from native folk tales, pop culture, poetry and childhood memories. His skilful
+    concoction of story telling and craft is widely appreciated and recognised by
+    art enthusiasts and media around the globe . He has collaborated with brands
+    like Lamborghini, Uber, Disney, Amazon, vivo & many more.\\n\\nAs an internet
+    native artist, Vimal reaches out to his followers through social media and his
+    illustrations and paintings are  popular among the art enthusiasts across the
+    world. His exhibitions has always been a crowd puller with one of its kind presentations.\\n\\nHe
+    is also the founder of  \u2018Unposted Letters\u2018 and \u2018Ordinary Secrets
+    Films\u2018."
+  profileImage: {fileID: 21300000, guid: d69e4cae0293e4245a1569d56fad45eb, type: 3}
+  isImageNFT: 1
+  imageNFT: {fileID: 21300000, guid: 9eca78c34baeedb408d97aaa1318d3d6, type: 3}
+  videoNFT: {fileID: 0}

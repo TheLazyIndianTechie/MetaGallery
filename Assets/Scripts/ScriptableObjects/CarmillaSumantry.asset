@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc3004c3211f4868802cf84ffbb0373, type: 3}
+  m_Name: CarmillaSumantry
+  m_EditorClassIdentifier: 
+  artistName: 'Carmilla Sumantry '
+  artistBio: Carmilla Sumantry is a multidisciplinary artist and designer based in
+    Vancouver, Canada. As a creative jack of all trades and trained as an industrial
+    designer, she carries experience in a variety of fields and mediums; including
+    furniture design, graphic design, oil painting, and digital art.\n\nForever gravitating
+    towards the intersection of art and design, a pivot into the NFT art world was
+    a natural transition. In early 2021, she began publishing and selling 1/1 3D
+    animated artwork as NFTs. This body of work is representative of surrealist dream-states
+    and translations of escapism, informed by design and colour theory. Each piece
+    is an expression of personal growth, existential thought, and mindful interpersonal
+    connection; with an intent grounded in spiritual awareness.\n\nThis new medium
+    led to several collaboration, consulting, and community-building opportunities;
+    as well as an enlightened passion for the potential culture-shifting power of
+    the web3 space. Carmilla plans to continue building a diverse career as an independent
+    creative in web3 and beyond. Say hi and get in touch with your creative needs
+    and collaboration opportunities.
+  profileImage: {fileID: 21300000, guid: 1fd8ec630de50f44785c4d9183a42b10, type: 3}
+  isImageNFT: 0
+  imageNFT: {fileID: 0}
+  videoFile: carmilla.mp4
