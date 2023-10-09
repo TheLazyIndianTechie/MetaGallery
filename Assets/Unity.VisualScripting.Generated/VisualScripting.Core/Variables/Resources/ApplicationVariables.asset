@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c63e9930078442aa987ca9a1511ae44, type: 3}
+  m_Name: ApplicationVariables
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"declarations":{"Kind":"Flow","collection":{"$content":[{"name":"UserDataJSON","value":{"balance":999000,"_id":"63a420c65e13ea71d8bfe109","name":"John
+      Doe","accountId":"5D7sGJu7iCXMNbTdHBDt3irFydbPaaSM5HUPqjiV1RtPSNfx","avatarUrl":"https://models.readyplayer.me/637509fb152ef07e24248c44.glb","currentNft":[-1,-1],"selectedLocalNft":[-1,-1],"$type":"UserData"},"typeHandle":{"Identification":"UserData,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"QuestCollectionData","value":{"quests":[{"questId":201,"questName":"Art
+      Afficionado","questDescription":"Check out the gallery and when you''re done,
+      let''s head over to the portal to MetaPort","itemId":1,"fulfillmentValue":1},{"questId":202,"questName":"MetaFantasy","questDescription":"Head
+      through the portal and head over to MetaFantasy","itemId":1,"fulfillmentValue":1}],"$type":"QuestCollectionData"},"typeHandle":{"Identification":"QuestCollectionData,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"ActiveQuestData","value":{"questId":0,"questName":null,"questDescription":null,"itemId":0,"fulfillmentValue":0,"$type":"QuestData"},"typeHandle":{"Identification":"QuestData,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"UserOwnedNFTCollectionData","value":{"nfts":[],"$type":"NFTCollectionData"},"typeHandle":{"Identification":"NFTCollectionData,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"NFTCollectionData","value":{"nfts":[],"$type":"NFTCollectionData"},"typeHandle":{"Identification":"NFTCollectionData,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
+    _objectReferences: []

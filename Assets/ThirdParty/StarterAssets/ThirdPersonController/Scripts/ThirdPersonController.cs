@@ -1,5 +1,4 @@
-﻿using Photon.Pun;
-using UnityEngine;
+﻿using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
@@ -24,13 +23,14 @@ namespace StarterAssets
 
         [Tooltip("How fast the character turns to face movement direction")]
         [Range(0.0f, 0.3f)]
-        public float RotationSmoothTime = 0.12f;
+        public float RotationSmoothTime = 0.15f;
+
+        [Tooltip("How sensitive the mouse is while using it for player rotation")]
+        [Range(0.1f, 2f)]
+        public float rotationSensitivity = 1f;
 
         [Tooltip("Acceleration and deceleration")]
         public float SpeedChangeRate = 10.0f;
-
-        [Tooltip("Adjust the sensititivty of the Pointer")]
-        public float LookSensitivity = 1.0f;
 
         public AudioClip LandingAudioClip;
         public AudioClip[] FootstepAudioClips;
@@ -80,14 +80,14 @@ namespace StarterAssets
         public bool LockCameraPosition = false;
 
         // cinemachine
-        private float _cinemachineTargetYaw;
-        private float _cinemachineTargetPitch;
+        protected float _cinemachineTargetYaw;
+        protected float _cinemachineTargetPitch;
 
         // player
         private float _speed;
         private float _animationBlend;
         private float _targetRotation = 0.0f;
-        private float _rotationVelocity;
+        protected float _rotationVelocity;
         private float _verticalVelocity;
         private float _terminalVelocity = 53.0f;
 
@@ -102,23 +102,19 @@ namespace StarterAssets
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
 
-        // Photon View
-        private PhotonView _photonView;
-
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
         private PlayerInput _playerInput;
 #endif
-        private Animator _animator;
+        protected Animator _animator;
         private CharacterController _controller;
         private StarterAssetsInputs _input;
-        private GameObject _mainCamera;
+        protected GameObject _mainCamera;
 
         private const float _threshold = 0.01f;
 
-        private bool _hasAnimator;
-        private bool _isGamePaused = false;
+        protected bool _hasAnimator;
 
-        private bool IsCurrentDeviceMouse
+        protected bool IsCurrentDeviceMouse
         {
             get
             {
@@ -130,16 +126,6 @@ namespace StarterAssets
             }
         }
 
-        private void OnEnable()
-        {
-            GalleryUIController.OnStateChange += SetGamePausedState;
-        }
-
-        private void OnDisable()
-        {
-            GalleryUIController.OnStateChange -= SetGamePausedState;
-        }
-
         private void Awake()
         {
             // get a reference to our main camera
@@ -149,13 +135,14 @@ namespace StarterAssets
             }
         }
 
-        private void Start()
+        protected virtual void Start()
         {
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
 
-            _hasAnimator = TryGetComponent(out _animator);
+            // Modified logic added to ModifiedStarterAssets
+            // _hasAnimator = TryGetComponent(out _animator);\
+
             _controller = GetComponent<CharacterController>();
-            _photonView = GetComponent<PhotonView>();
             _input = GetComponent<StarterAssetsInputs>();
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
             _playerInput = GetComponent<PlayerInput>();
@@ -170,27 +157,19 @@ namespace StarterAssets
             _fallTimeoutDelta = FallTimeout;
         }
 
-        private void Update()
+        protected virtual void Update()
         {
-            _hasAnimator = TryGetComponent(out _animator);
+            // Modified logic added to ModifiedStarterAssets
+            // _hasAnimator = TryGetComponent(out _animator);
 
-            if (_photonView.IsMine)
-            {
-                if (!_isGamePaused)
-                {
-                    JumpAndGravity();
-                    GroundedCheck();
-                    Move();
-                }
-            }
+            JumpAndGravity();
+            GroundedCheck();
+            Move();
         }
 
-        private void LateUpdate()
+        protected virtual void LateUpdate()
         {
-            if (_photonView.IsMine)
-            {
-                if (!_isGamePaused) { CameraRotation(); }
-            }
+            CameraRotation();
         }
 
         private void AssignAnimationIDs()
@@ -217,16 +196,15 @@ namespace StarterAssets
             }
         }
 
-        private void CameraRotation()
+        protected void CameraRotation()
         {
             // if there is an input and camera position is not fixed
             if (_input.look.sqrMagnitude >= _threshold && !LockCameraPosition)
             {
                 //Don't multiply mouse input by Time.deltaTime;
                 float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
-
-                _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier * LookSensitivity;
-                _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier * LookSensitivity;
+                _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier * rotationSensitivity;
+                _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier * rotationSensitivity;
             }
 
             // clamp our rotations so our values are limited 360 degrees
@@ -396,7 +374,7 @@ namespace StarterAssets
                 GroundedRadius);
         }
 
-        private void OnFootstep(AnimationEvent animationEvent)
+        public void OnFootstep(AnimationEvent animationEvent)
         {
             if (animationEvent.animatorClipInfo.weight > 0.5f)
             {
@@ -408,22 +386,12 @@ namespace StarterAssets
             }
         }
 
-        private void OnLand(AnimationEvent animationEvent)
+        public void OnLand(AnimationEvent animationEvent)
         {
             if (animationEvent.animatorClipInfo.weight > 0.5f)
             {
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
-        }
-
-        public void SetSensitivity(float newSensitivity)
-        {
-            LookSensitivity = newSensitivity;
-        }
-
-        private void SetGamePausedState(bool newState)
-        {
-            _isGamePaused = newState;
         }
     }
 }

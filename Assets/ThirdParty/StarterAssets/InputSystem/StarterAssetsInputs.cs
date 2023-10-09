@@ -12,7 +12,6 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
-		public bool switchCamera;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -44,11 +43,6 @@ namespace StarterAssets
 		{
 			SprintInput(value.isPressed);
 		}
-
-		public void OnSwitchCamera(InputValue value)
-		{
-			SwitchCameraInput(value.isPressed);
-		}
 #endif
 
 
@@ -70,11 +64,6 @@ namespace StarterAssets
 		public void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
-		}
-
-		public void SwitchCameraInput(bool newCameraState)
-		{
-			switchCamera = newCameraState;
 		}
 
 		private void OnApplicationFocus(bool hasFocus)
