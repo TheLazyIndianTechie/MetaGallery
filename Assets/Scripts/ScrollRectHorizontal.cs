@@ -5,9 +5,14 @@ using UnityEngine.UI;
 
 public class ScrollRectHorizontal : MonoBehaviour
 {
-    [SerializeField] private ScrollRect scrollRect;
+    public ScrollRect scrollRect;
     [SerializeField] private float scrollSpeed = 0.01f;
-   
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -27,7 +32,7 @@ public class ScrollRectHorizontal : MonoBehaviour
         {
             if (((scrollRect.horizontalNormalizedPosition <= 1f) && (scrollFactor >= 0)) || ((scrollRect.horizontalNormalizedPosition >= 0f && (scrollFactor <= 0))))
             {
-                scrollRect.horizontalNormalizedPosition += (scrollFactor * scrollSpeed);
+                scrollRect.horizontalNormalizedPosition = scrollRect.horizontalNormalizedPosition + (scrollFactor * scrollSpeed);
             }
         }
     }

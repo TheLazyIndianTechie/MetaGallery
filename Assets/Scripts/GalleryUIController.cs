@@ -23,7 +23,7 @@ public class GalleryUIController : MonoBehaviour
     public delegate void UIOverlayState(bool isEnabled);
     public static event UIOverlayState OnStateChange;
 
-   /* private void OnEnable()
+    private void OnEnable()
     {
         ObjectClickDetector.OnTap += ShowPreviewOverlay;
     }
@@ -31,7 +31,7 @@ public class GalleryUIController : MonoBehaviour
     private void OnDisable()
     {
         ObjectClickDetector.OnTap -= ShowPreviewOverlay;
-    }*/
+    }
 
     public void OnClickLeave()
     {

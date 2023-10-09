@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.InteropServices;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -5,8 +6,8 @@ using UnityEngine;
 enum VisualScriptingVariables
 {
     UserDataJSON,
+    NFTCollectionData,
     UserOwnedNFTCollectionData,
-    ListedNFTCollectionData,
     QuestCollectionData,
 }
 
@@ -16,20 +17,19 @@ public class ReactDataManager : MonoBehaviour
     private static extern void GetUserData(string gameObjectName, string functionName);
 
     [DllImport("__Internal")]
+    private static extern void GetNFTCollectionData(string gameObjectName, string functionName);
+
+    [DllImport("__Internal")]
     private static extern void GetUserOwnedNFTCollectionData(string gameObjectName, string functionName);
 
     [DllImport("__Internal")]
-    private static extern void GetListedNFTData(string gameObjectName, string functionName);
-
-
-    [DllImport("__Internal")]
-    private static extern void DeListNFT(string gameObjectName, string functionName, int frameID, int collectionID, int nftID);
+    private static extern void BuyNFT(string gameObjectName, string functionName1, string functionName2, int collectionID, int nftID, ulong nftCost);
 
     [DllImport("__Internal")]
-    private static extern void ListNFT(string gameObjectName, string functionName, int frameID, int collectionID, int nftID, ulong nftCost);
+    private static extern void SetCurrentNFT(string gameObjectName, string functionName1, int collectionID, int nftID);
 
     [DllImport("__Internal")]
-    private static extern void BuyListedNFT(string gameObjectName, string functionName, int frameID, int collectionID, int nftID, ulong nftCost);
+    private static extern void SellNFT(int collectionID, int nftID, int nftCost);
 
     [DllImport("__Internal")]
     private static extern void GetQuestData(string gameObjectName, string functionName);
@@ -44,23 +44,15 @@ public class ReactDataManager : MonoBehaviour
     public delegate void GetUserDataCallback();
     public static event GetUserDataCallback OnGetUserDataCallback;
 
+    public delegate void GetNFTCollectionDataCallback();
+    public static event GetNFTCollectionDataCallback OnGetNFTCollectionDataCallback;
+
     public delegate void GetUserOwnedNFTCollectionDataCallback();
     public static event GetUserOwnedNFTCollectionDataCallback OnGetUserOwnedNFTCollectionDataCallback;
 
-    public delegate void GetListedNFTDataCallback();
-    public static event GetListedNFTDataCallback OnGetListedNFTDataCallback;
-
-    public delegate void DeListNFTCallback();
-    public static event DeListNFTCallback OnDeListNFTCallback;
-
-    public delegate void ListNFTCallback();
-    public static event ListNFTCallback OnListNFTCallback;
-
-    public delegate void BuyListedNFTCallback();
-    public static event BuyListedNFTCallback OnBuyListedNFTCallback;
-
-    public delegate void GetQuestDataCallback();
-    public static event GetQuestDataCallback OnGetQuestDataCallback;
+    public delegate void SetCurrentNFTSuccessCallback();
+    public static event SetCurrentNFTSuccessCallback OnSetCurrentNFTSuccessCallback;
+    public static event SetCurrentNFTSuccessCallback OnSetCurrentNFTFailCallback;
 
     // Lifecycle Methods
     private void Awake()
@@ -81,32 +73,38 @@ public class ReactDataManager : MonoBehaviour
         GetUserData(gameObjectName, functionName);
     }
 
+
+    public void CallGetNFTCollectionData(string gameObjectName, string functionName)
+    {
+        GetNFTCollectionData(gameObjectName, functionName);
+    }
+
+    public void CallBuyNFT(string gameObjectName, string functionName1, string functionName2, int collectionID, int nftID, ulong nftCost)
+    {
+        Debug.Log("React Data Manager calling: " + gameObjectName + " , " + functionName1 + " , " + functionName2 + " , " + collectionID + " , " + nftID + " , " + nftCost);
+        BuyNFT(gameObjectName, functionName1, functionName2, collectionID, nftID, nftCost);
+    }
+
     public void CallGetUserOwnedNFTCollectionData(string gameObjectName, string functionName)
     {
         GetUserOwnedNFTCollectionData(gameObjectName, functionName);
     }
 
-    public void CallGetListedNFTCollectionData(string gameObjectName, string functionName)
+    public void CallSetCurrentNFT(string gameObjectName, string functionName, int collectionID, int nftID)
     {
-        GetListedNFTData(gameObjectName, functionName);
+        // Locally modify the currentNFT selected for display in the NFT wall
+        UserData userData = (UserData)Variables.Application.Get(VisualScriptingVariables.UserDataJSON.ToString());
+        userData.selectedLocalNft.Clear();
+        userData.selectedLocalNft.Add(collectionID);
+        userData.selectedLocalNft.Add(nftID);
+        Variables.Application.Set(VisualScriptingVariables.UserDataJSON.ToString(), userData);
+
+        SetCurrentNFT(gameObjectName, functionName, collectionID, nftID);
     }
 
-    public void CallDeListNFT(string gameObjectName, string functionName, int frameID, int collectionID, int nftID)
+    public void CallSellNFT(int collectionID, int nftID, int nftCost)
     {
-        Debug.Log("ReactDataManager: CallDeListNFT(" + gameObjectName + ", " + functionName + ", " + frameID + ", " + collectionID + ", " + nftID + ")");
-        DeListNFT(gameObjectName, functionName, frameID, collectionID, nftID);
-    }
-
-    public void CallListNFT(string gameObjectName, string functionName, int frameID, int collectionID, int nftID, ulong nftCost)
-    {
-        Debug.Log("ReactDataManager: CallListNFT(" + gameObjectName + ", " + functionName + ", " + frameID + ", " + collectionID + ", " + nftID + ", " + nftCost + ")");
-        ListNFT(gameObjectName, functionName, frameID, collectionID, nftID, nftCost);
-    }
-
-    public void CallBuyListedNFT(string gameObjectName, string functionName, int frameID, int collectionID, int nftID, ulong nftCost)
-    {
-        Debug.Log("ReactDataManager: CallBuyListedNFT(" + gameObjectName + ", " + functionName + ", " + frameID + ", " + collectionID + ", " + nftID + ", " + nftCost + ")");
-        BuyListedNFT(gameObjectName, functionName, frameID, collectionID, nftID, nftCost);
+        SellNFT(collectionID, nftID, nftCost);
     }
 
     public void CallGetQuestData(string gameObjectName, string functionName)
@@ -116,7 +114,11 @@ public class ReactDataManager : MonoBehaviour
 
     public void CallCompleteQuest(int questId, string gameObjectName, string functionName)
     {
+        Debug.Log("Calling Complete Quest from React Data Manager on " +questId );
+
         CompleteQuest(questId, gameObjectName, functionName);
+
+        Debug.Log("Called complete quest");
     }
 
     // Handle React callbacks
@@ -132,6 +134,20 @@ public class ReactDataManager : MonoBehaviour
         OnGetUserDataCallback?.Invoke();
     }
 
+    public void GetNFTCollectionData(string dataJSON)
+    {
+        // Deserialize the JSON data
+        NFTCollectionData collection = JsonUtility.FromJson<NFTCollectionData>(dataJSON);
+
+        // Save the data into visual scripting object
+        if (collection != null)
+        {
+            Variables.Application.Set(VisualScriptingVariables.NFTCollectionData.ToString(), collection);
+        }
+
+        // Dispatch Unity delegate event
+        OnGetNFTCollectionDataCallback?.Invoke();
+    }
 
     public void GetUserOwnedNFTCollectionData(string dataJSON)
     {
@@ -148,20 +164,6 @@ public class ReactDataManager : MonoBehaviour
         OnGetUserOwnedNFTCollectionDataCallback?.Invoke();
     }
 
-    public void GetListedNFTCollectionData(string dataJSON)
-    {
-        // Deserialize the JSON data
-        ListedNFTCollectionData collection = JsonUtility.FromJson<ListedNFTCollectionData>(dataJSON);
-
-        // Save the data into visual scripting object
-        if (collection != null)
-        {
-            Variables.Application.Set(VisualScriptingVariables.ListedNFTCollectionData.ToString(), collection);
-        }
-
-        // Dispatch Unity delegate event
-        OnGetListedNFTDataCallback?.Invoke();
-    }
 
     public void GetUserQuestsData(string questJSON)
     {
@@ -171,9 +173,33 @@ public class ReactDataManager : MonoBehaviour
         if (quests != null)
         {
             Variables.Application.Set(VisualScriptingVariables.QuestCollectionData.ToString(), quests);
+
+            Debug.Log(quests.quests);
+            QuestCollectionData qcd = (QuestCollectionData)Variables.Application.Get(VisualScriptingVariables.QuestCollectionData.ToString());
+
+            Debug.Log("Quest array contains " + qcd.quests.Count + " items");
+
+            Debug.Log("Quest Data from GetUserQuestsData method in Unity:" + Variables.Application.Get(VisualScriptingVariables.QuestCollectionData.ToString()));
         }
 
-        // Dispatch Unity delegate event
-        OnGetQuestDataCallback?.Invoke();
     }
+
+    public void GetCurrentNFTModifyStatus(int status)
+    {
+        if (status == 1)
+        {
+            // Confirm the local selected NFT
+            UserData userData = (UserData)Variables.Application.Get(VisualScriptingVariables.UserDataJSON.ToString());
+            userData.currentNft.Clear();
+            userData.currentNft.AddRange(userData.selectedLocalNft);
+            Variables.Application.Set(VisualScriptingVariables.UserDataJSON.ToString(), userData);
+
+            OnSetCurrentNFTSuccessCallback?.Invoke();
+        }
+        else
+        {
+            OnSetCurrentNFTFailCallback?.Invoke();
+        }
+    }
+
 }

@@ -98,7 +98,7 @@ public class ModifiedThirdPersonController : ThirdPersonController
         }
     }
 
-    private void ToogleCursorLocked()
+    private void ToogleCursorLocked(string canvasName)
     {
         UpdateGameState(false);
     }

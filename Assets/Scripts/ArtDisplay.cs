@@ -1,60 +1,49 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class ArtDisplay : MonoBehaviour
 {
-    [SerializeField] private int artFrameID;
+    [Header("Scriptable object")]
+    [SerializeField] private Art art;
 
     [Header("Game objects")]
-    [SerializeField] private TMP_Text artName;
-    [SerializeField] private GameObject imgArt;
+    [SerializeField] private GameObject artistName;
+    [SerializeField] private GameObject imageCanvas;
+    [SerializeField] private GameObject video;
+    [SerializeField] private Image image;
 
-    private void OnEnable()
-    {
-        WowEventManager.StartListening(nameof(WowEvents.OnRPMAvatarLoaded), UpdateArtInfo);
-        ReactDataManager.OnGetListedNFTDataCallback += UpdateArtInfo;
-    }
+    private TextMeshPro nameText;
+    private VideoPlayer videoPlayer;
 
-    private void OnDisable()
-    {
-        WowEventManager.StopListening(nameof(WowEvents.OnRPMAvatarLoaded), UpdateArtInfo);
-        ReactDataManager.OnGetListedNFTDataCallback -= UpdateArtInfo;
-    }
 
-    private void UpdateArtInfo()
+    // Start is called before the first frame update
+    void Start()
     {
-        // Fetch the Art Data from the Application variable;
-        ListedNFTCollectionData listedNFTCollectionData = (ListedNFTCollectionData)Variables.Application.Get(VisualScriptingVariables.ListedNFTCollectionData.ToString());
-        ListedNFTData listedNFTData = listedNFTCollectionData.listedNfts.Find(item => item.frameId == artFrameID);
-        if(listedNFTData != null)
+        nameText = artistName.GetComponent<TextMeshPro>();
+        videoPlayer = video.GetComponent<VideoPlayer>();
+
+        nameText.text = art.artistName;
+        if(art.isImageNFT)
         {
-            artName.text = listedNFTData.nft.nftName;
-            StartCoroutine(SetImage(imgArt, listedNFTData.nft.metadata));
+            image.sprite = art.imageNFT;
+
+            imageCanvas.SetActive(true);
+            video.SetActive(false);
         } else
         {
-            artName.text = "";
-            imgArt.GetComponent<Image>().sprite = null;
+            videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, art.videoFile);
+
+            imageCanvas.SetActive(false);
+            video.SetActive(true);
         }
     }
 
-    IEnumerator SetImage(GameObject gameObject, string url)
+    public Art GetArt()
     {
-        UnityWebRequest request = UnityWebRequestTexture.GetTexture(url);
-        yield return request.SendWebRequest();
-
-        if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.DataProcessingError || request.result == UnityWebRequest.Result.ProtocolError)
-        {
-            Debug.Log(request.result);
-        }
-        else
-        {
-            Texture2D tex = ((DownloadHandlerTexture)request.downloadHandler).texture;
-            Sprite sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(tex.width / 2, tex.height / 2));
-            gameObject.transform.GetComponent<Image>().sprite = sprite;
-        }
+        return art;
     }
 }

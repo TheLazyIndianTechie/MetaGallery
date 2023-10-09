@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectClickDetector : MonoBehaviour
 {
-   /* public delegate void PreviewArt(Art art);
+    public delegate void PreviewArt(Art art);
     public static event PreviewArt OnTap;
     private bool isGamePaused = false;
 
@@ -45,5 +45,5 @@ public class ObjectClickDetector : MonoBehaviour
     private void SetGamePausedState(bool newState)
     {
         isGamePaused = newState;
-    }*/
+    }
 }
