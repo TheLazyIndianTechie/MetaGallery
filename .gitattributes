@@ -1,0 +1,183 @@
+## Unity ##
+
+*.cs diff=csharp text
+*.cginc text
+*.shader text
+*.mat merge=unityyamlmerge eol=lf
+*.anim merge=unityyamlmerge eol=lf
+*.unity merge=unityyamlmerge eol=lf
+*.prefab merge=unityyamlmerge eol=lf
+*.physicsMaterial2D merge=unityyamlmerge eol=lf
+*.physicMaterial merge=unityyamlmerge eol=lf
+*.asset merge=unityyamlmerge eol=lf
+*.meta merge=unityyamlmerge eol=lf
+*.controller merge=unityyamlmerge eol=lf
+## git-lfs ##
+#Image
+*.jpg filter=lfs diff=lfs merge=lfs -text
+*.jpeg filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text
+*.gif filter=lfs diff=lfs merge=lfs -text
+*.psd filter=lfs diff=lfs merge=lfs -text
+*.ai filter=lfs diff=lfs merge=lfs -text
+#Audio
+*.mp3 filter=lfs diff=lfs merge=lfs -text
+*.wav filter=lfs diff=lfs merge=lfs -text
+*.ogg filter=lfs diff=lfs merge=lfs -text
+#Video
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+*.mov filter=lfs diff=lfs merge=lfs -text
+#3D Object
+*.FBX filter=lfs diff=lfs merge=lfs -text
+*.fbx filter=lfs diff=lfs merge=lfs -text
+*.blend filter=lfs diff=lfs merge=lfs -text
+*.obj filter=lfs diff=lfs merge=lfs -text
+#ETC
+*.a filter=lfs diff=lfs merge=lfs -text
+*.exr filter=lfs diff=lfs merge=lfs -text
+*.tga filter=lfs diff=lfs merge=lfs -text
+*.pdf filter=lfs diff=lfs merge=lfs -text
+*.zip filter=lfs diff=lfs merge=lfs -text
+*.dll filter=lfs diff=lfs merge=lfs -text
+*.unitypackage filter=lfs diff=lfs merge=lfs -text
+*.aif filter=lfs diff=lfs merge=lfs -text
+*.ttf filter=lfs diff=lfs merge=lfs -text
+*.rns filter=lfs diff=lfs merge=lfs -text
+*.reason filter=lfs diff=lfs merge=lfs -text
+*.lxo filter=lfs diff=lfs merge=lfs -text
+/Assets/Animators/DeathAnim.anim filter=lfs diff=lfs merge=lfs -text
+/Assets/Animators/Shaking[[:space:]]It[[:space:]]Off.anim filter=lfs diff=lfs merge=lfs -text
+/Assets/Avatars/209a1bc2-efed-46c5-9dfd-edc8a1d9cbe4.glb filter=lfs diff=lfs merge=lfs -text
+/Assets/Avatars/535c4949-de82-49b8-96ab-a9b5453badad.glb filter=lfs diff=lfs merge=lfs -text
+/Assets/Avatars/5a750adc-8db2-4a97-8a84-4c4fcb227253.glb filter=lfs diff=lfs merge=lfs -text
+/Assets/Avatars/627d148c67e8fc168651e9cf/627d148c67e8fc168651e9cf.glb filter=lfs diff=lfs merge=lfs -text
+/Assets/Avatars/7763911e-6f5f-43bd-b47c-d2182ac50174.glb filter=lfs diff=lfs merge=lfs -text
+/Assets/Avatars/f9019e88-ce8e-493c-ac64-04f10f662857.glb filter=lfs diff=lfs merge=lfs -text
+/Assets/Backups/Archived/LobbySceneSP_Archived.unity filter=lfs diff=lfs merge=lfs -text
+/Assets/Backups/House_1_Exterior_Scene.unity\#174.unity filter=lfs diff=lfs merge=lfs -text
+/Assets/Backups/House_1_Interior_Scene[[:space:]]1.unity filter=lfs diff=lfs merge=lfs -text
+/Assets/Backups/LobbySceneMPBackup.unity filter=lfs diff=lfs merge=lfs -text
+/Assets/Backups/LobbySceneSP.unity filter=lfs diff=lfs merge=lfs -text
+/Assets/Backups/LobbySceneSPBackup.unity filter=lfs diff=lfs merge=lfs -text
+/Assets/Hovl[[:space:]]Studio/Procedural[[:space:]]fire/Prefabs/Explosion.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Hovl[[:space:]]Studio/Procedural[[:space:]]fire/Prefabs/Magic[[:space:]]fire[[:space:]]0.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Hovl[[:space:]]Studio/Procedural[[:space:]]fire/Prefabs/Magic[[:space:]]fire[[:space:]]1.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Hovl[[:space:]]Studio/Procedural[[:space:]]fire/Prefabs/Magic[[:space:]]fire[[:space:]]2.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Hovl[[:space:]]Studio/Procedural[[:space:]]fire/Prefabs/Magic[[:space:]]fire[[:space:]]3.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Hovl[[:space:]]Studio/Procedural[[:space:]]fire/Prefabs/Magic[[:space:]]fire[[:space:]]pro[[:space:]]blue.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Hovl[[:space:]]Studio/Procedural[[:space:]]fire/Prefabs/Magic[[:space:]]fire[[:space:]]pro[[:space:]]green.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Hovl[[:space:]]Studio/Procedural[[:space:]]fire/Prefabs/Magic[[:space:]]fire[[:space:]]pro[[:space:]]orange.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Hovl[[:space:]]Studio/Procedural[[:space:]]fire/Prefabs/Magic[[:space:]]fire[[:space:]]pro[[:space:]]red.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Hovl[[:space:]]Studio/Procedural[[:space:]]fire/Prefabs/Magic[[:space:]]fire[[:space:]]pro[[:space:]]yellow.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Hovl[[:space:]]Studio/Procedural[[:space:]]fire/Prefabs/RotatorPS1.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Hovl[[:space:]]Studio/Procedural[[:space:]]fire/Prefabs/RotatorPS2.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Hovl[[:space:]]Studio/Procedural[[:space:]]fire/Shaders/FireSphere.shadergraph filter=lfs diff=lfs merge=lfs -text
+/Assets/LightSpeed/FX_Metaport.unity filter=lfs diff=lfs merge=lfs -text
+/Assets/LightSpeed/MetaPort_Loading.unity filter=lfs diff=lfs merge=lfs -text
+/Assets/Models/Interior/TexturesCom_Marble_TilesSquare7_512_albedo.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/Models/Mixamo/PassiveMarkerMan/Guitar[[:space:]]Playing.anim filter=lfs diff=lfs merge=lfs -text
+/Assets/Models/Mixamo/PassiveMarkerMan/Silly[[:space:]]Dancing.anim filter=lfs diff=lfs merge=lfs -text
+/Assets/Models/Mixamo/PassiveMarkerMan/WavingSingleHanded.anim filter=lfs diff=lfs merge=lfs -text
+/Assets/Models/Mixamo/PassiveMarkerMan/WavingTwoHanded.anim filter=lfs diff=lfs merge=lfs -text
+/Assets/Plugins/GLTFUtility/Materials/URP/Standard[[:space:]](Metallic).shadergraph filter=lfs diff=lfs merge=lfs -text
+/Assets/Plugins/Ready[[:space:]]Player[[:space:]]Me/Resources/AnimationAvatars/FeminineAnimationAvatar.asset filter=lfs diff=lfs merge=lfs -text
+/Assets/Plugins/Ready[[:space:]]Player[[:space:]]Me/Resources/AnimationAvatars/MasculineAnimationAvatar.asset filter=lfs diff=lfs merge=lfs -text
+/Assets/Plugins/Ready[[:space:]]Player[[:space:]]Me/Resources/Animations/Guitar[[:space:]]Playing.anim filter=lfs diff=lfs merge=lfs -text
+/Assets/Plugins/Ready[[:space:]]Player[[:space:]]Me/Resources/Animations/Silly[[:space:]]Dancing.anim filter=lfs diff=lfs merge=lfs -text
+/Assets/Plugins/Ready[[:space:]]Player[[:space:]]Me/Resources/Animations/Talking.anim filter=lfs diff=lfs merge=lfs -text
+/Assets/Plugins/Ready[[:space:]]Player[[:space:]]Me/Resources/Animations/Walking.anim filter=lfs diff=lfs merge=lfs -text
+/Assets/Plugins/Ready[[:space:]]Player[[:space:]]Me/Resources/Animations/WavingSingleHanded.anim filter=lfs diff=lfs merge=lfs -text
+/Assets/Plugins/Ready[[:space:]]Player[[:space:]]Me/Resources/Animations/WavingTwoHanded.anim filter=lfs diff=lfs merge=lfs -text
+/Assets/Prefabs/CanvasPrefabs/MusicPanel[[:space:]]1.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Prefabs/CanvasPrefabs/MusicPanel.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Prefabs/CanvasPrefabs/PlayerHUD[[:space:]].prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Prefabs/DamageParticleSystem.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Prefabs/Female.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Prefabs/HealthParticleSystem.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Prefabs/Male.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Prefabs/SpawnEffect.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Prefabs/StaminaParticleSystem.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Scenes/LobbyScene/LobbyScene[[:space:]]-[[:space:]]Single[[:space:]]Player.unity filter=lfs diff=lfs merge=lfs -text
+/Assets/Scenes/LobbyScene/Sci-Fi[[:space:]]Styled[[:space:]]Modular[[:space:]]Pack/Prefabs/Machines/Shield[[:space:]]Core.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Scenes/LobbyScene/Sci-Fi[[:space:]]Styled[[:space:]]Modular[[:space:]]Pack/Prefabs/Machines/projector[[:space:]]stars.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Scenes/LobbyScene/Sci-Fi[[:space:]]Styled[[:space:]]Modular[[:space:]]Pack/Prefabs/Machines/projector.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Scenes/LobbyScene/ScifiLobbyScene.unity filter=lfs diff=lfs merge=lfs -text
+/Assets/Scenes/MainLobbyScene.unity filter=lfs diff=lfs merge=lfs -text
+/Assets/Scenes/MetaHome/Exterior/Tier_1/House[[:space:]]2/V2/House_2_Exterior_V2.unity filter=lfs diff=lfs merge=lfs -text
+/Assets/Scenes/MetaHome/Exterior/Tier_1/House_1/House_1_Exterior_Scene.unity filter=lfs diff=lfs merge=lfs -text
+/Assets/Scenes/MetaHome/Exterior/Tier_1/House_1/V2/House_1_Exterior_V2.unity filter=lfs diff=lfs merge=lfs -text
+/Assets/Scenes/MetaHome/Interior/Tier_1/House_1/House_1_Interior_Scene.unity filter=lfs diff=lfs merge=lfs -text
+/Assets/Scenes/MetaHome/Interior/Tier_1/House_1/V2/scene/House_1_Interior_V2.unity filter=lfs diff=lfs merge=lfs -text
+/Assets/Scenes/MetaHome/Interior/Tier_1/House_2/scene/House_2_Interior_V2.unity filter=lfs diff=lfs merge=lfs -text
+/Assets/Scenes/Server-Dev/LobbySceneServer.unity filter=lfs diff=lfs merge=lfs -text
+/Assets/Scenes/Temp.unity filter=lfs diff=lfs merge=lfs -text
+/Assets/SineVFX/PostProcessingV2/Textures/Cubes/Linear[[:space:]]to[[:space:]]Unity[[:space:]]Log[[:space:]]r1.cube filter=lfs diff=lfs merge=lfs -text
+/Assets/SineVFX/PostProcessingV2/Textures/Cubes/Linear[[:space:]]to[[:space:]]sRGB[[:space:]]r1.cube filter=lfs diff=lfs merge=lfs -text
+/Assets/SineVFX/PostProcessingV2/Textures/Cubes/Unity[[:space:]]Log[[:space:]]to[[:space:]]Linear[[:space:]]r1.cube filter=lfs diff=lfs merge=lfs -text
+/Assets/SineVFX/PostProcessingV2/Textures/Cubes/Unity[[:space:]]Log[[:space:]]to[[:space:]]sRGB[[:space:]]r1.cube filter=lfs diff=lfs merge=lfs -text
+/Assets/SineVFX/PostProcessingV2/Textures/Cubes/sRGB[[:space:]]to[[:space:]]Linear[[:space:]]r1.cube filter=lfs diff=lfs merge=lfs -text
+/Assets/SineVFX/PostProcessingV2/Textures/Cubes/sRGB[[:space:]]to[[:space:]]Unity[[:space:]]Log[[:space:]]r1.cube filter=lfs diff=lfs merge=lfs -text
+/Assets/SineVFX/TranslucentCrystals/Scenes/DemoScene/LightingData.asset filter=lfs diff=lfs merge=lfs -text
+/Assets/SineVFX/TranslucentCrystals/Scenes/DemoSceneGamma/LightingData.asset filter=lfs diff=lfs merge=lfs -text
+/Assets/StarterAssets/Environment/Prefabs/Environment_Prefab.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/StarterAssets/Environment/Shaders/URP_HDRP_ShaderGraph/UrpTriplanar.shadergraph filter=lfs diff=lfs merge=lfs -text
+/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Arms_AlbedoTransparency.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Arms_MetallicSmoothness.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Arms_Normal.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Arms_RGB.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Body_AlbedoTransparency.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Body_MetallicSmoothness.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Body_Normal.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Body_RGB.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Legs_AlbedoTransparency.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Legs_MetallicSmoothness.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Legs_Normal.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Legs_RGB.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/StarterAssets/ThirdPersonController/Scenes/Playground/LightingData.asset filter=lfs diff=lfs merge=lfs -text
+/Assets/Temporary[[:space:]]Prefabs/MainCanvas[[:space:]]1.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Temporary[[:space:]]Prefabs/New[[:space:]]Environment.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Temporary[[:space:]]Prefabs/PlayerScreenCanvas.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/Temporary/209a1bc2-efed-46c5-9dfd-edc8a1d9cbe4.glb filter=lfs diff=lfs merge=lfs -text
+/Assets/Temporary/5a750adc-8db2-4a97-8a84-4c4fcb227253.glb filter=lfs diff=lfs merge=lfs -text
+/Assets/Terrain/New[[:space:]]Terrain.asset filter=lfs diff=lfs merge=lfs -text
+/Assets/TextMesh[[:space:]]Pro/Examples[[:space:]]&[[:space:]]Extras/Scenes/18[[:space:]]-[[:space:]]ScrollRect[[:space:]]&[[:space:]]Masking[[:space:]]&[[:space:]]Layout.unity filter=lfs diff=lfs merge=lfs -text
+/Assets/TextMesh[[:space:]]Pro/Resources/Fonts[[:space:]]&[[:space:]]Materials/LiberationSans[[:space:]]SDF.asset filter=lfs diff=lfs merge=lfs -text
+/Assets/Textures/Floor/TexturesCom_OutdoorFloor4_512_albedo.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/Textures/Floor/TexturesCom_OutdoorFloor4_512_ao.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/Textures/Floor/TexturesCom_OutdoorFloor4_512_normal.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/Textures/Floor/TexturesCom_OutdoorFloor4_512_roughness.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/Textures/Floor2/TexturesCom_FloorThreadplate1_512_albedo.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/Textures/Floor2/TexturesCom_FloorThreadplate1_512_ao.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/Textures/Floor2/TexturesCom_FloorThreadplate1_512_metallic.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/Textures/Floor2/TexturesCom_FloorThreadplate1_512_normal.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/Textures/Floor3/TexturesCom_Scifi_Floor3_512_albedo.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/Textures/Floor3/TexturesCom_Scifi_Floor3_512_ao.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/Textures/Floor3/TexturesCom_Scifi_Floor3_512_normal.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/Textures/Floor3/TexturesCom_Scifi_Floor3_512_roughness.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/Textures/SciPanel/TexturesCom_SciFiPanels09_512_albedo.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/Textures/SciPanel/TexturesCom_SciFiPanels09_512_ao.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/Textures/SciPanel/TexturesCom_SciFiPanels09_512_metallic.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/Textures/SciPanel/TexturesCom_SciFiPanels09_512_normal.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/Textures/SciPanel/TexturesCom_SciFiPanels09_512_roughness.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db filter=lfs diff=lfs merge=lfs -text
+/Assets/packs/Aquarius[[:space:]]Fantasy[[:space:]]-[[:space:]]High[[:space:]]Elves/Demo[[:space:]]Scenes/Water_Normals_A.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/packs/Aquarius[[:space:]]Fantasy[[:space:]]-[[:space:]]High[[:space:]]Elves/FBX/Water[[:space:]]Mats,[[:space:]]Shaders/Leaves[[:space:]]Foliage.shadergraph filter=lfs diff=lfs merge=lfs -text
+/Assets/packs/Aquarius[[:space:]]Fantasy[[:space:]]-[[:space:]]High[[:space:]]Elves/FBX/Water[[:space:]]Mats,[[:space:]]Shaders/Water[[:space:]]Shader.shadergraph filter=lfs diff=lfs merge=lfs -text
+/Assets/packs/Aquarius[[:space:]]Fantasy[[:space:]]-[[:space:]]High[[:space:]]Elves/FBX/Water[[:space:]]Mats,[[:space:]]Shaders/Waterfall[[:space:]]Realistic[[:space:]]A.shadergraph filter=lfs diff=lfs merge=lfs -text
+/Assets/packs/Aquarius[[:space:]]Fantasy[[:space:]]-[[:space:]]High[[:space:]]Elves/Prefabs/Nature/Water[[:space:]]Prefabs/Waterfall_Fog_B.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/packs/LowPolyOpenWorld/Nature/Assets/Prefabs/Trees[[:space:]]and[[:space:]]bushes/Bush_1.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/packs/LowPolyOpenWorld/Nature/Assets/Prefabs/Trees[[:space:]]and[[:space:]]bushes/Bush_1_Autumn.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/packs/LowPolyOpenWorld/Nature/Assets/Prefabs/Trees[[:space:]]and[[:space:]]bushes/Bush_2.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/packs/LowPolyOpenWorld/Nature/Assets/Prefabs/Trees[[:space:]]and[[:space:]]bushes/Bush_3.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/packs/LowPolyOpenWorld/Nature/Assets/Prefabs/Trees[[:space:]]and[[:space:]]bushes/Bush_3_Autumn.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/packs/LowPolyOpenWorld/Nature/Assets/Prefabs/Trees[[:space:]]and[[:space:]]bushes/PineTree_4.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/packs/Metropia[[:space:]]-[[:space:]]Sci-Fi[[:space:]]City/Assets/Prefabs/FX/FirefliesFX.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/packs/Metropia[[:space:]]-[[:space:]]Sci-Fi[[:space:]]City/Assets/Prefabs/FX/LeafFallFX.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/packs/Metropia[[:space:]]-[[:space:]]Sci-Fi[[:space:]]City/Assets/Prefabs/FX/SunShaft.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/packs/Metropia[[:space:]]-[[:space:]]Sci-Fi[[:space:]]City/Assets/Prefabs/Trees/Tree_1.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/packs/Metropia[[:space:]]-[[:space:]]Sci-Fi[[:space:]]City/Assets/Prefabs/Trees/Tree_2.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/packs/Metropia[[:space:]]-[[:space:]]Sci-Fi[[:space:]]City/Assets/Prefabs/Trees/Tree_3.prefab filter=lfs diff=lfs merge=lfs -text
+/Assets/packs/SkySeries[[:space:]]Freebie/FreebieHdri/UnearthlyRed4k.hdr filter=lfs diff=lfs merge=lfs -text
+/Assets/scifi-floor_textures/TexturesCom_Scifi_Panel_512_albedo.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/scifi-floor_textures/TexturesCom_Scifi_Panel_512_normal.tif filter=lfs diff=lfs merge=lfs -text
+/Assets/scifi-floor_textures/TexturesCom_Scifi_Panel_512_roughness.tif filter=lfs diff=lfs merge=lfs -text
